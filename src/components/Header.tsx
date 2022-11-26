@@ -5,11 +5,7 @@ import Typography from '@mui/material/Typography';
 
 const lightColor = 'rgba(255, 255, 255, 0.7)';
 
-interface HeaderProps {
-  onDrawerToggle: () => void;
-}
-
-export default function Header(props: HeaderProps) {
+export default function Header() {
   return (
     <AppBar 
       component="div"  
