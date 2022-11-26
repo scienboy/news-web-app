@@ -43,7 +43,7 @@ export default function Navigator(props: DrawerProps) {
   const { pathname } = useLocation();
   // const location = useLocation();
 
-  console.log("pathname", pathname);
+  // console.log("pathname", pathname);
   // console.log("location", location);
   
   return (
