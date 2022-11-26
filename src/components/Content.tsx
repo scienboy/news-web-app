@@ -8,6 +8,9 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import SearchIcon from '@mui/icons-material/Search';
 
+import NewsTrendChart from './NewsTrendChart';
+
+
 export default function Content() {
   return (
     <Paper sx={{ maxWidth: 936, margin: 'auto', overflow: 'hidden' }}>
@@ -41,9 +44,7 @@ export default function Content() {
           </Grid>
         </Toolbar>
       </AppBar>
-      <Typography sx={{ my: 5, mx: 2 }} color="text.secondary" align="center">
-        No results found yet
-      </Typography>
+      <NewsTrendChart />
     </Paper>
   );
 }
