@@ -41,6 +41,12 @@ export default function Navigator(props: DrawerProps) {
   const { ...other } = props;
   const navigate = useNavigate();
   const { pathname } = useLocation();
+
+
+  const menus = [
+    {title: "News Trends", path: NEWS_TRENDS_PATH, icon: <ShowChartIcon />},
+    {title: "Sentiment Trends", path: SENTIMENT_TRENDS_PATH, icon: <FavoriteIcon />},
+  ];
   // const location = useLocation();
 
   // console.log("pathname", pathname);
@@ -52,34 +58,25 @@ export default function Navigator(props: DrawerProps) {
         <ListItem sx={{ ...item, ...itemCategory, fontSize: 22, color: '#fff' }}>
           News Analytics
         </ListItem>
-        <ListItem sx={{ p: 0 }}>
-          <ListItemButton
-            sx={item}
-            selected={pathname === NEWS_TRENDS_PATH} // 선택하면 메뉴 색상 자동 변경 true= 선택되었을 때, false= 선택되지 않았을 때. 
-            onClick={() => {
-              navigate(NEWS_TRENDS_PATH);
-            }}
-          >
-            <ListItemIcon>
-              <ShowChartIcon />
-            </ListItemIcon>
-            <ListItemText>News Trends</ListItemText>
-          </ListItemButton>
-        </ListItem>
-        <ListItem sx={{ p: 0 }}>
-          <ListItemButton
-            sx={item}
-            selected={pathname === SENTIMENT_TRENDS_PATH} // 선택하면 메뉴 색상 자동 변경
-            onClick={() => {
-              navigate(SENTIMENT_TRENDS_PATH);
-            }}
-          >
-            <ListItemIcon>
-              <FavoriteIcon />
-            </ListItemIcon>
-            <ListItemText>Sentiment Trends</ListItemText>
-          </ListItemButton>
-        </ListItem>
+        {
+          menus.map(({title, path, icon}) => ( // 뒤에 오는게 소괄호: 컴포넌트 하나일 때 / 중괄호: 코드 라인이 여러줄일 때
+            // loop를 돌 때는 list item이 서로 다르다는 것을 인지시켜야 하기 대문에 key를 줘야 함. 안그러면 에러남
+            <ListItem key={path} sx={{ p: 0 }}> 
+            <ListItemButton
+              sx={item}
+              selected={pathname === path} // 선택하면 메뉴 색상 자동 변경 true= 선택되었을 때, false= 선택되지 않았을 때. 
+              onClick={() => {
+                navigate(path);
+              }}
+            >
+              <ListItemIcon>
+                {icon}
+              </ListItemIcon>
+              <ListItemText>{title}</ListItemText>
+            </ListItemButton>
+          </ListItem>
+          )) 
+        }
       </List>
     </Drawer>
   );
