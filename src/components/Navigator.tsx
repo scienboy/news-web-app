@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom"
+
 import * as React from 'react';
 import Divider from '@mui/material/Divider';
 import Drawer, { DrawerProps } from '@mui/material/Drawer';
@@ -7,6 +9,9 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
+
+import { NEWS_TRENDS_PATH, SENTIMENT_TRENDS_PATH } from "../App";
+
 import HomeIcon from '@mui/icons-material/Home';
 import PeopleIcon from '@mui/icons-material/People';
 import DnsRoundedIcon from '@mui/icons-material/DnsRounded';
@@ -34,6 +39,7 @@ const itemCategory = {
 
 export default function Navigator(props: DrawerProps) {
   const { ...other } = props;
+  const navigate = useNavigate();
 
   return (
     <Drawer variant="permanent" {...other}>
@@ -42,7 +48,12 @@ export default function Navigator(props: DrawerProps) {
           News Analytics
         </ListItem>
         <ListItem sx={{ p: 0 }}>
-          <ListItemButton sx={item}>
+          <ListItemButton
+            sx={item}
+            onClick={() => {
+              navigate(NEWS_TRENDS_PATH);
+            }}
+          >
             <ListItemIcon>
               <ShowChartIcon />
             </ListItemIcon>
@@ -50,7 +61,12 @@ export default function Navigator(props: DrawerProps) {
           </ListItemButton>
         </ListItem>
         <ListItem sx={{ p: 0 }}>
-          <ListItemButton sx={item}>
+          <ListItemButton
+            sx={item}
+            onClick={() => {
+              navigate(SENTIMENT_TRENDS_PATH);
+            }}
+          >
             <ListItemIcon>
               <FavoriteIcon />
             </ListItemIcon>
