@@ -41,10 +41,10 @@ export default function Navigator(props: DrawerProps) {
   const { ...other } = props;
   const navigate = useNavigate();
   const { pathname } = useLocation();
-  const location = useLocation();
+  // const location = useLocation();
 
   console.log("pathname", pathname);
-  console.log("location", location);
+  // console.log("location", location);
   
   return (
     <Drawer variant="permanent" {...other}>
@@ -55,6 +55,7 @@ export default function Navigator(props: DrawerProps) {
         <ListItem sx={{ p: 0 }}>
           <ListItemButton
             sx={item}
+            selected={pathname === NEWS_TRENDS_PATH} // 선택하면 메뉴 색상 자동 변경 true= 선택되었을 때, false= 선택되지 않았을 때. 
             onClick={() => {
               navigate(NEWS_TRENDS_PATH);
             }}
@@ -68,6 +69,7 @@ export default function Navigator(props: DrawerProps) {
         <ListItem sx={{ p: 0 }}>
           <ListItemButton
             sx={item}
+            selected={pathname === SENTIMENT_TRENDS_PATH} // 선택하면 메뉴 색상 자동 변경
             onClick={() => {
               navigate(SENTIMENT_TRENDS_PATH);
             }}
