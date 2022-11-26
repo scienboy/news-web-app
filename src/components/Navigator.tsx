@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useLocation } from "react-router-dom"
 
 import * as React from 'react';
 import Divider from '@mui/material/Divider';
@@ -40,7 +40,12 @@ const itemCategory = {
 export default function Navigator(props: DrawerProps) {
   const { ...other } = props;
   const navigate = useNavigate();
+  const { pathname } = useLocation();
+  const location = useLocation();
 
+  console.log("pathname", pathname);
+  console.log("location", location);
+  
   return (
     <Drawer variant="permanent" {...other}>
       <List disablePadding>
