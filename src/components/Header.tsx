@@ -10,17 +10,19 @@ interface HeaderProps {
 }
 
 export default function Header(props: HeaderProps) {
-  const { onDrawerToggle } = props;
-
   return (
-    <React.Fragment>
-      <AppBar color="primary" position="sticky" elevation={0}>
-        <Toolbar>
-          <Typography color="inherit" variant="h5" component="h1">
-            Authentication
-          </Typography>
-        </Toolbar>
-      </AppBar>
-    </React.Fragment>
+    <AppBar 
+      component="div"  
+      color="primary" 
+      position="static" 
+      elevation={0}
+      sx={{ zIndex: 0, py: 2}}
+    >
+      <Toolbar>
+        <Typography color="inherit" variant="h5" component="h1">
+          Authentication
+        </Typography>
+      </Toolbar>
+    </AppBar>
   );
 }
