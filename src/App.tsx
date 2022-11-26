@@ -1,11 +1,16 @@
 import './App.css';
+
+import { Route, Routes } from 'react-router-dom';
+
 import Paperbase from "./components/Paperbase";
+import NotFound from './components/Notfound';
 
 function App() {
   return (
-    <div className="App">
-      <Paperbase/> {/* 하나의 컴포넌트로 보고 있음 */}
-    </div>
+    <Routes>
+      <Route element={<Paperbase />} path="/" />
+      <Route element={<NotFound />} path="*" />
+    </Routes>
   );
 }
 
