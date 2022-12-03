@@ -20,21 +20,18 @@ export default function NewsTrendChart() {
 
     console.log("isLoading", isLoading);
     console.log("data", data);
+
+    const trace: Plotly.Data = {
+        x: data.trends.map(el => el.date),
+        y: data.trends.map(el => el.doc_count),
+        type: "scatter",
+        mode: "lines+markers",
+    }
    
     return (
+        // Plot은 항상 목록을 받음. 그러므로 대괄호 안에 넣어줘야 함 e.g. [trace]
         <Plot
-            data={[
-                {
-                    x: [1, 2, 3],
-                    y: [2, 6, 3],
-                    type: 'scatter',
-                    mode: 'lines+markers',
-                    marker: {color: 'red'},
-                },
-                {
-                    type: 'bar', x: [1, 2, 3], y: [2, 5, 3]
-                },
-            ]}
+            data={[trace]}
             layout={ {width: 320, height: 240, title: 'A Fancy Plot'} }
         />
     );
