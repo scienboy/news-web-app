@@ -32,7 +32,8 @@ export default function NewsTrendChart() {
         // Plot은 항상 목록을 받음. 그러므로 대괄호 안에 넣어줘야 함 e.g. [trace]
         <Plot
             data={[trace]}
-            layout={ {width: 320, height: 240, title: 'A Fancy Plot'} }
+            layout={ {autosize: true}}
+            style={{width: "100%"}}
         />
     );
 }
