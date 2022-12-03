@@ -1,6 +1,7 @@
 import React from 'react';
 import Plot from 'react-plotly.js';
 import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
 
 import { useGetNewsTrendsQuery } from "../app/newsApi";
 
@@ -8,8 +9,13 @@ import { useGetNewsTrendsQuery } from "../app/newsApi";
 export default function NewsTrendChart() {
     const {data, isLoading} = useGetNewsTrendsQuery();
 
-    if (isLoading) {
-        return <CircularProgress />;
+    // 로딩중이거나 데이터가 없을 때 로딩중 아이콘(동그라미 도는 것) 보이도록 하기
+    if (isLoading || !data) { 
+        return (
+            <Box sx={{ p: 3, textAlign:"center"}}>
+                <CircularProgress />
+            </Box>
+        );
     }
 
     console.log("isLoading", isLoading);
