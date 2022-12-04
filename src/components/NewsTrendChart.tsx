@@ -29,8 +29,8 @@ export default function NewsTrendChart({search}: IProps) { // 위에서 선언�
     // console.log("data", data);
 
     const trace: Plotly.Data = {
-        x: data.trends.map(el => el.date),
-        y: data.trends.map(el => el.doc_count),
+        x: data.trends.map((el) => el.date),
+        y: data.trends.map((el) => el.doc_count),
         type: "scatter",
         mode: "lines+markers",
     }

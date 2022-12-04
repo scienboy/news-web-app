@@ -10,3 +10,15 @@ export type NewsTrendItem = {
 export type NewsTrends = {
     trends: NewsTrendItem[];
 };
+
+export type SentimentTrendItem = {
+    date: string;
+    positive: number;
+    neutral: number;
+    negative: number;
+    sentiment: number;
+};
+
+export type SentimentTrends = {
+    trends: SentimentTrendItem[];
+};

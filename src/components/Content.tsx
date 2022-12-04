@@ -13,6 +13,7 @@ import TextField from '@mui/material/TextField';
 import SearchIcon from '@mui/icons-material/Search';
 
 import NewsTrendChart from './NewsTrendChart';
+import SentimentTrendChart from './SentimentTrendChart';
 
 
 export default function Content() {
@@ -93,7 +94,14 @@ export default function Content() {
           </Grid>
         </Toolbar>
       </AppBar>
-      <NewsTrendChart search={searchText}/>
+      {
+        pathname === '/news-trends' ? (             // if url이 news-trends면
+          <NewsTrendChart search={searchText} />
+        ) : (                           // else     // else면
+          <SentimentTrendChart search={searchText} />
+        )
+      }
+      {/* <NewsTrendChart search={searchText}/> */}
       {/* <NewsTrendChart/> */}
     </Paper>
   );
