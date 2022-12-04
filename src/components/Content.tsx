@@ -23,8 +23,11 @@ export default function Content() {
   // inputText("hello"); // 이렇게 하면 리액트가 다시 그리지 않음. 그래서 state variable을 변경해야 함.
   // setInputText("hello"); // 이렇게 함수 호출 통해 값을 바꿔야 함
 
+  const [searchText, setSearchText] = useState(""); 
+
   function onSearch() {
     console.log('inputText', inputText);
+    setSearchText(inputText);
   }
 
 
@@ -73,7 +76,7 @@ export default function Content() {
           </Grid>
         </Toolbar>
       </AppBar>
-      <NewsTrendChart />
+      <NewsTrendChart search={searchText}/>
     </Paper>
   );
 }

@@ -1,3 +1,7 @@
+export type SearchReqParams = {
+    search: string;
+};
+
 export type NewsTrendItem = {
     date: string;
     doc_count: number;

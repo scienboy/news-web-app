@@ -12,7 +12,7 @@ interface IProps {
 
 
 export default function NewsTrendChart({search}: IProps) { // 위에서 선언된 값을 여기서 받아서 사용함
-    const {data, isLoading} = useGetNewsTrendsQuery();
+    const {data, isLoading} = useGetNewsTrendsQuery({search}); // search를 받아라!
 
     // 로딩중이거나 데이터가 없을 때 로딩중 아이콘(동그라미 도는 것) 보이도록 하기
     if (isLoading || !data) { 
