@@ -55,12 +55,17 @@ export default function Content() {
                   // event handler
                   setInputText(e.target.value); // 내가 입력한 텍스트의 값이 e.target.value에 들어있음
                 }} // 변수가 아니라 함수를 넣어줌
+                onKeyDown={(e) => { // 키가 눌릴 때 이벤트 e 발생하도록 함
+                  if (e.key === 'Enter') { // 검색창에서 입력된 키가 엔터면
+                    onSearch(); // onSearch 함수 호출. 함수를 실행해라
+                  }
+                }}
               />
             </Grid>
             <Grid item>
               <Button 
                 variant="contained" sx={{ mr: 1 }}
-                onClick={onSearch}                  // Search 버튼 클릭 시 onSearch function 동작
+                onClick={onSearch}                  // Search 버튼 클릭 시 onSearch function 동작. onSearch()와 같이 함수실행 형태로 주지 않은 이유는, 함수 자체를 넘겨주는 방식이기 때문
               >
                 Search
               </Button>

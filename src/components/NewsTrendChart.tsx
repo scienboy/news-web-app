@@ -18,8 +18,8 @@ export default function NewsTrendChart() {
         );
     }
 
-    console.log("isLoading", isLoading);
-    console.log("data", data);
+    // console.log("isLoading", isLoading);
+    // console.log("data", data);
 
     const trace: Plotly.Data = {
         x: data.trends.map(el => el.date),
