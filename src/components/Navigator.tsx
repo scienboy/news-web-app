@@ -40,7 +40,8 @@ const itemCategory = {
 export default function Navigator(props: DrawerProps) {
   const { ...other } = props;
   const navigate = useNavigate();
-  const { pathname } = useLocation();
+  const { pathname, search  } = useLocation();
+  
 
 
   const menus = [
@@ -66,7 +67,7 @@ export default function Navigator(props: DrawerProps) {
               sx={item}
               selected={pathname === path} // 선택하면 메뉴 색상 자동 변경 true= 선택되었을 때, false= 선택되지 않았을 때. 
               onClick={() => {
-                navigate(path);
+                navigate(path + search); // 메뉴가 바뀌어도 검색창에 입력한 내용은 유지되어야 함.
               }}
             >
               <ListItemIcon>
