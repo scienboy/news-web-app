@@ -1,5 +1,5 @@
 import './App.css';
-
+import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 
 import Paperbase from "./components/Paperbase"; // 이상한 url 입력 시 Not found 페이지로 이동

@@ -40,7 +40,7 @@ const itemCategory = {
 export default function Navigator(props: DrawerProps) {
   const { ...other } = props;
   const navigate = useNavigate();
-  const { pathname, search  } = useLocation();
+  const { pathname, search } = useLocation();
   
 
 

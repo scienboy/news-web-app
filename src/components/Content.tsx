@@ -95,7 +95,7 @@ export default function Content() {
         </Toolbar>
       </AppBar>
       {
-        pathname === '/news-trends' ? (             // if url이 news-trends면
+        pathname === '/news_trends' ? (             // if url이 news-trends면
           <NewsTrendChart search={searchText} />
         ) : (                           // else     // else면
           <SentimentTrendChart search={searchText} />
